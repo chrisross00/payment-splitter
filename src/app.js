@@ -9,6 +9,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
+import { addBill } from './actions/bills';
 
 const store = configureStore();
 const jsx = (
@@ -24,6 +25,14 @@ const renderApp = () => {
   }
 };
 
+// // Test bill
+// store.dispatch(addBill({
+//   billId: '1',
+//   name: 'Bobby',
+//   description: 'test',
+//   createdDate: 0,
+//   createdBy: 'Chris'
+// }))
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
